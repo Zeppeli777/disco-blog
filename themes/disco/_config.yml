@@ -28,9 +28,9 @@ footers:
 giscus:
   enable: true
   repo: 'Zeppeli777/disco-blog'
-  repo_id: ''            # 由 deploy 脚本自动填入
-  category: '公告'
-  category_id: ''        # 由 deploy 脚本自动填入
+  repo_id: 'R_kgDOUOdzZg'
+  category: 'Announcements'
+  category_id: 'DIC_kwDOUOdzZs4DE4VK'
   mapping: 'pathname'
   reactions_enabled: 1
   lang: 'zh-CN'
