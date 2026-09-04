@@ -1,7 +1,7 @@
 <%
 const g = theme.giscus;
 if (g && g.enable && g.repo && g.repo_id && g.category_id) {
-  const themeUrl = config.url.replace(/\/$/, '') + url_for('css/giscus.css');
+  const themeUrl = full_url_for('css/giscus.css');
 %>
 <section class="comments">
   <div class="wrap narrow">
