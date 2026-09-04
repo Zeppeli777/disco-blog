@@ -4,10 +4,14 @@
       <p class="hero-kicker">一次技能检定 · 白色 · 自动成功</p>
       <h1 class="hero-title"><%= config.title %></h1>
       <p class="hero-sub"><%= config.subtitle %></p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#entries">开始阅读</a>
-        <a class="btn" href="<%- url_for('archives') %>">查看案件档案</a>
-      </div>
+      <nav class="menu-vertical" aria-label="主菜单">
+        <% theme.menu.forEach(function(item){ const u = item.url === '/' ? '#entries' : item.url; %>
+        <a class="mv-item" href="<%- u %>">
+          <span class="mv-label"><i class="mv-gem" aria-hidden="true"></i><%= item.label %></span>
+          <span class="mv-flavor"><%= item.flavor %></span>
+        </a>
+        <% }) %>
+      </nav>
       <p class="hero-hint">点击文中任意检定横幅可以掷骰 —— 结果由命运决定，由你叙述。</p>
     </div>
   </div>

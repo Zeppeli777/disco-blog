@@ -49,7 +49,7 @@ tags: [随想]              # 标签；加上 thought 标签会同时出现在�
 | 想改什么 | 改哪里 |
 | --- | --- |
 | 站名 / 作者 / 副标题 / 地址 | 根目录 `_config.yml` 顶部 |
-| 导航菜单和 hover 台词、页脚随机台词、角色卡数值、giscus 配置 | `themes/disco/_config.yml` |
+| 导航菜单（首页竖排主菜单 + 内页 HUD 顶栏）、悬停台词、页脚随机台词、角色卡数值、giscus 配置 | `themes/disco/_config.yml` |
 | 配色 / 字体 / 版式 | `themes/disco/source/css/main.css`（CSS 变量集中在 `:root`） |
 | 首页油画太阳 | `themes/disco/layout/_partial/sun.ejs`（内联 SVG） |
 

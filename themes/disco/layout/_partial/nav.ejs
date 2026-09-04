@@ -1,27 +1,16 @@
 <header class="topbar">
   <div class="wrap topbar-in">
     <a class="brand" href="<%- url_for('/') %>">
-      <span class="brand-sun" aria-hidden="true">
-        <svg viewBox="0 0 40 40" width="30" height="30">
-          <circle cx="20" cy="20" r="9" fill="#f6c37e"/>
-          <circle cx="20" cy="20" r="15" fill="none" stroke="#f09c4a" stroke-opacity=".55" stroke-width="2"/>
-          <circle cx="20" cy="20" r="19" fill="none" stroke="#f09c4a" stroke-opacity=".22" stroke-width="1"/>
-        </svg>
-      </span>
-      <span class="brand-text">
-        <strong><%= config.title %></strong>
-        <em>REVACHOL · CITIZEN'S LOG</em>
-      </span>
+      <i class="brand-gem" aria-hidden="true"></i>
+      <strong><%= config.title %></strong>
+      <span class="brand-sep" aria-hidden="true">/</span>
+      <em>REVACHOL · CITIZEN'S LOG</em>
     </a>
     <nav class="menu" aria-label="主导航">
       <% theme.menu.forEach(function(item, i){ %>
-      <a class="menu-item" href="<%- url_for(item.url) %>" data-flavor="<%= item.flavor %>">
-        <i class="mi-idx"><%= ('0' + (i + 1)).slice(-2) %></i><span><%= item.label %></span>
-      </a>
+      <% if (i) { %><span class="menu-slash" aria-hidden="true">/</span><% } %>
+      <a class="menu-item" href="<%- url_for(item.url) %>"><span><%= item.label %></span></a>
       <% }) %>
     </nav>
-  </div>
-  <div class="flavor-strip">
-    <div class="wrap"><p id="flavor-strip" aria-hidden="true"></p></div>
   </div>
 </header>

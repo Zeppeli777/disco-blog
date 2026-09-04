@@ -22,26 +22,6 @@
     revealEls.forEach(function (el) { el.classList.add('on'); });
   }
 
-  /* ---- 导航 flavor 条：hover 显示台词，否则轮播 ---- */
-  var strip = document.getElementById('flavor-strip');
-  var menuFlavors = Array.prototype.slice.call(document.querySelectorAll('.menu-item'))
-    .map(function (a) { return a.getAttribute('data-flavor'); })
-    .filter(Boolean);
-  if (strip) {
-    var pool = menuFlavors.length ? menuFlavors : ['……'];
-    var idx = 0;
-    var show = function (t) {
-      strip.classList.remove('show');
-      setTimeout(function () { strip.textContent = t; strip.classList.add('show'); }, 160);
-    };
-    document.querySelectorAll('.menu-item').forEach(function (a) {
-      a.addEventListener('mouseenter', function () { show(a.getAttribute('data-flavor')); });
-      a.addEventListener('focus', function () { show(a.getAttribute('data-flavor')); });
-    });
-    show(pool[0]);
-    setInterval(function () { idx = (idx + 1) % pool.length; show(pool[idx]); }, 7000);
-  }
-
   /* ---- 页脚随机台词 ---- */
   var footQuote = document.getElementById('foot-quote');
   var footData = document.getElementById('foot-quotes');
