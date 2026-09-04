@@ -1,0 +1,56 @@
+# —— 站点信息（改这里就能改掉全站标题/作者/地址）——
+title: 瑞瓦肖来信
+subtitle: 一场发生在你颅骨内的对话
+description: 极乐迪斯科风格的个人博客 · Revachol Citizen's Log
+keywords: 博客,Disco Elysium,极乐迪斯科
+author: Zeppeli777
+language: zh-CN
+timezone: 'Asia/Shanghai'
+
+# 部署后你的 GitHub Pages 地址。若把仓库名改成 <用户名>.github.io，root 应改为 '/'
+url: https://zeppeli777.github.io/disco-blog
+root: /disco-blog/
+permalink: posts/:title/
+permalink_defaults:
+
+# —— 目录 / 分页 ——
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+index_dir: ''
+
+index_generator:
+  path: ''
+  per_page: 8
+  order_by: -date
+
+archive_generator:
+  per_page: 40
+  yearly: true
+  monthly: false
+
+# —— 渲染 ——
+theme: disco
+marked:
+  prependRoot: true
+  postBreak: false
+  breaks: false
+  smartypants: true
+
+# —— Feed ——
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  content: true
+
+server:
+  port: 4000
+  compress: true
+
+date_format: YYYY年MM月DD日
+time_format: HH:mm:ss
+updated_option: 'mtime'

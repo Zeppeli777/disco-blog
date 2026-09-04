@@ -1,0 +1,28 @@
+<section class="wrap sheet">
+  <header class="sheet-head">
+    <p class="hero-kicker">人物档案 · 45 教区最伟大的失败品</p>
+    <h1 class="ph-title">角色卡 · <%= config.author %></h1>
+    <p class="sheet-lead">“我不知道我是谁——我甚至不知道我在想什么。”<br><span class="sheet-note">（这张卡的数值在 <code>themes/disco/_config.yml</code> 里，随时可以重新洗点。）</span></p>
+  </header>
+
+  <div class="attr-grid">
+    <% Object.keys(theme.character).forEach(function(attr){ const group = theme.character[attr]; %>
+    <div class="attr-col <%= group.color %>">
+      <h2 class="attr-name"><%= attr %></h2>
+      <p class="attr-blurb"><%= group.blurb %></p>
+      <ul class="skill-list">
+        <% group.skills.forEach(function(s){ %>
+        <li>
+          <span class="sl-row"><span class="sl-name"><%= s[0] %></span><span class="sl-dots" aria-hidden="true"></span><span class="sl-val"><%= s[1] %></span></span>
+          <span class="sl-quip"><%= s[2] %></span>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+    <% }) %>
+  </div>
+
+  <div class="sheet-body post-body">
+    <%- page.content %>
+  </div>
+</section>

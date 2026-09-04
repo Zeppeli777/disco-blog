@@ -1,0 +1,48 @@
+/* ============================================================
+   giscus 自定义主题 —— 与博客本体同款的暗色夜蓝 + 暖纸白
+   该文件通过 data-theme URL 注入 giscus iframe 内部
+   ============================================================ */
+:root {
+  --color-canvas-default: #12161f;
+  --color-canvas-overlay: #161c28;
+  --color-canvas-inset: #0e1116;
+  --color-canvas-subtle: #1a2130;
+  --color-border-default: #2a3345;
+  --color-border-muted: #232b3b;
+  --color-fg-default: #e9e3d3;
+  --color-fg-muted: #8a8fa0;
+  --color-fg-subtle: #5d6475;
+  --color-accent-fg: #f6c37e;
+  --color-accent-emphasis: #f09c4a;
+  --color-accent-muted: rgba(240, 156, 74, 0.4);
+  --color-accent-subtle: rgba(240, 156, 74, 0.12);
+  --color-btn-primary-bg: #f09c4a;
+  --color-btn-primary-hover-bg: #f6c37e;
+  --color-btn-primary-fg: #0e1116;
+  --color-btn-inactive-bg: #1a2130;
+  --color-btn-inactive-fg: #8a8fa0;
+  --color-neutral-muted: rgba(138, 143, 160, 0.2);
+  --color-attention-subtle: rgba(240, 156, 74, 0.1);
+  --font-family-sans: "Noto Serif SC", "Songti SC", serif;
+  --font-family-serif: "Noto Serif SC", "Songti SC", serif;
+}
+
+main {
+  font-family: var(--font-family-serif);
+  line-height: 1.9;
+}
+
+/* 发言按钮与反应框统一成尖角细框风格 */
+.giscus-button,
+.giscus-reaction-button {
+  border-radius: 0 !important;
+  font-family: var(--font-family-serif) !important;
+}
+.giscus-comment-box,
+.giscus-box {
+  border-radius: 0 !important;
+}
+.giscus-comment-header,
+.giscus-comment-body {
+  font-family: var(--font-family-serif) !important;
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<%- partial('_partial/head') %>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<%- partial('_partial/nav') %>
+<main class="site-main">
+<%- body %>
+</main>
+<%- partial('_partial/footer') %>
+<% if (is_post()) { %><%- partial('_partial/comments') %><% } %>
+<script src="<%- url_for('js/main.js') %>" defer></script>
+</body>
+</html>

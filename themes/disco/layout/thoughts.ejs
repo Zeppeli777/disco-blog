@@ -1,0 +1,21 @@
+<section class="wrap thoughts">
+  <h1 class="sec-title big"><span>思维阁</span><em>THOUGHT CABINET</em></h1>
+  <p class="th-lead">有些想法在颅内结晶。给文章加上 <code>thought</code> 标签，它就会在这里定居。</p>
+  <%
+  const tq = site.tags.findOne({slug: 'thought'});
+  if (tq && tq.posts && tq.posts.length) {
+    tq.posts.sort('date', -1).forEach(function(post){ %>
+    <div class="thought-card reveal">
+      <div class="tc-head">
+        <span class="tc-badge">⟡ 结晶中</span>
+        <h2><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+      </div>
+      <p class="tc-ex"><%= (strip_html(post.excerpt) || strip_html(post.content) || '').trim().replace(/\s+/g, ' ').slice(0, 140) %>…</p>
+      <span class="tc-date">已内化于 <%= date(post.date, config.date_format) %> · 研究完成度 100%</span>
+    </div>
+  <% }); } else { %>
+  <div class="thought-card empty">
+    <p>思维阁空空如也。第一颗想法还未结晶。</p>
+  </div>
+  <% } %>
+</section>

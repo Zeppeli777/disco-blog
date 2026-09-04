@@ -1,0 +1,17 @@
+<section class="wrap archives">
+  <h1 class="sec-title big"><span>案件档案</span><em>CASE FILES</em></h1>
+  <p class="arc-count">共 <%= page.posts.length %> 件记录 · 均未结案</p>
+  <%
+  let lastYear = null;
+  page.posts.each(function(post){
+    const y = post.date.format('YYYY');
+    if (y !== lastYear) { lastYear = y; %>
+    <h2 class="arc-year"><%= y %></h2>
+    <% } %>
+    <a class="arc-row reveal" href="<%- url_for(post.path) %>">
+      <span class="arc-title"><%= post.title || post.slug %></span>
+      <span class="arc-dots" aria-hidden="true"></span>
+      <span class="arc-date"><%= date(post.date, 'MM月DD日') %></span>
+    </a>
+  <% }) %>
+</section>

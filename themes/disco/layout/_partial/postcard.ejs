@@ -1,0 +1,17 @@
+<article class="postcard reveal">
+  <a class="pc-main" href="<%- url_for(post.path) %>">
+    <div class="pc-top">
+      <span class="pc-day"><%= post.day ? '第 ' + post.day + ' 天' : date(post.date, 'YYYY.MM.DD') %></span>
+      <span class="pc-loc"><%= post.location || '瑞瓦肖 · 无名之地' %></span>
+      <% if (post.skill) { %><span class="pc-skill <%= post.skill_color || 'white' %>"><%= post.skill %></span><% } %>
+    </div>
+    <h3 class="pc-title"><%= post.title || post.slug %></h3>
+    <p class="pc-excerpt"><%= (strip_html(post.excerpt) || strip_html(post.content) || '').trim().replace(/\s+/g, ' ').slice(0, 110) %>…</p>
+    <span class="pc-more">继续 ▸</span>
+  </a>
+  <% if (post.tags && post.tags.length) { %>
+  <div class="pc-tags">
+    <% post.tags.each(function(t){ %><a href="<%- url_for(t.path) %>" class="tagpill"><%= t.name %></a><% }) %>
+  </div>
+  <% } %>
+</article>

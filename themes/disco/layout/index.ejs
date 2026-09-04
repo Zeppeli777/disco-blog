@@ -1,0 +1,25 @@
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-art" aria-hidden="true"><%- partial('_partial/sun') %></div>
+    <div class="hero-copy">
+      <p class="hero-kicker">一次技能检定 · 白色 · 自动成功</p>
+      <h1 class="hero-title"><%= config.title %></h1>
+      <p class="hero-sub"><%= config.subtitle %></p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#entries">开始阅读</a>
+        <a class="btn" href="<%- url_for('archives') %>">查看案件档案</a>
+      </div>
+      <p class="hero-hint">点击文中任意检定横幅可以掷骰 —— 结果由命运决定，由你叙述。</p>
+    </div>
+  </div>
+</section>
+
+<section class="entries" id="entries">
+  <div class="wrap">
+    <h2 class="sec-title"><span>对话记录</span><em>RECENT ENTRIES</em></h2>
+    <div class="post-list">
+      <% page.posts.each(function(post){ %><%- partial('_partial/postcard', {post: post}) %><% }) %>
+    </div>
+    <%- paginator({ prev: '‹ 上一页', next: '下一页 ›', mid_size: 1, escape: false }) %>
+  </div>
+</section>

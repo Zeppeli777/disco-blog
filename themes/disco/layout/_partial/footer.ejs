@@ -1,0 +1,15 @@
+<footer class="site-foot">
+  <script type="application/json" id="foot-quotes"><%- JSON.stringify(theme.footers || []) %></script>
+  <div class="wrap">
+    <p class="foot-quote" id="foot-quote"></p>
+    <p class="foot-meta">
+      <span>© <%= new Date().getFullYear() %> <%= config.author %></span>
+      <span class="fm-sep">·</span>
+      <a href="<%- url_for('atom.xml') %>">RSS</a>
+      <span class="fm-sep">·</span>
+      <a href="https://github.com/<%= config.author %>" target="_blank" rel="noopener">GitHub</a>
+      <span class="fm-sep">·</span>
+      <span>Powered by Hexo · 主题「Disco」</span>
+    </p>
+  </div>
+</footer>

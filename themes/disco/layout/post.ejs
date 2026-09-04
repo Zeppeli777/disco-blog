@@ -1,0 +1,38 @@
+<article class="post">
+  <header class="post-head">
+    <div class="wrap narrow">
+      <p class="ph-scene">
+        <span class="ph-loc"><%= page.location || '瑞瓦肖' %></span>
+        <span class="ph-sep">·</span>
+        <span class="ph-date"><%= date(page.date, config.date_format) %></span>
+        <% if (page.day) { %><span class="ph-sep">·</span><span class="ph-day">第 <%= page.day %> 天</span><% } %>
+        <span class="ph-sep">·</span><span class="ph-read">约 <%= Math.max(1, Math.round(strip_html(page.content).length / 450)) %> 分钟</span>
+      </p>
+      <h1 class="ph-title"><%= page.title %></h1>
+      <% if (page.lead) { %><p class="ph-lead"><%= page.lead %></p><% } %>
+      <% if (page.tags && page.tags.length) { %>
+      <p class="ph-tags">
+        <% page.tags.each(function(t){ %><a href="<%- url_for(t.path) %>" class="tagpill"><%= t.name %></a><% }) %>
+      </p>
+      <% } %>
+    </div>
+  </header>
+
+  <div class="wrap narrow post-body">
+    <%- page.content %>
+  </div>
+
+  <footer class="post-foot">
+    <div class="wrap narrow">
+      <div class="pf-nav">
+        <% if (page.prev) { %>
+        <a class="pf-item" href="<%- url_for(page.prev.path) %>"><span class="pf-label">◂ 上一段记忆</span><strong><%= page.prev.title %></strong></a>
+        <% } %>
+        <% if (page.next) { %>
+        <a class="pf-item pf-right" href="<%- url_for(page.next.path) %>"><span class="pf-label">下一段记忆 ▸</span><strong><%= page.next.title %></strong></a>
+        <% } %>
+      </div>
+      <p class="pf-end"><span>本段对话已结束</span></p>
+    </div>
+  </footer>
+</article>
