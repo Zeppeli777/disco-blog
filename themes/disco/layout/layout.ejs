@@ -10,6 +10,10 @@
 <%- body %>
 </main>
 <%- partial('_partial/footer') %>
+<aside class="hud" aria-hidden="true" title="阅读会消耗士气。这是游戏的规则，也是这里的。">
+  <div class="hud-row"><span class="hud-label">体质</span><div class="hud-bar"><i class="hp-fill"></i></div></div>
+  <div class="hud-row"><span class="hud-label">士气</span><div class="hud-bar"><i class="mp-fill" id="morale-fill"></i></div></div>
+</aside>
 <% if (is_post()) { %><%- partial('_partial/comments') %><% } %>
 <script src="<%- url_for('js/main.js') %>" defer></script>
 </body>

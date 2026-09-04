@@ -42,8 +42,10 @@ hexo.extend.tag.register('check', function (args) {
   const name = args[0] || '检定';
   const diff = args[1] || '';
   const result = args[2] || '成功';
-  const cls = /成功|通过|白色/.test(result) ? 'pass' : 'fail';
-  return `<div class="check-banner ${cls}" data-roll role="button" tabindex="0" aria-label="技能检定，点击掷骰">`
+  const pass = /成功|通过|白色/.test(result);
+  const color = ATTR_COLOR[name] || ATTR_COLOR[name.toLowerCase()] || 'white';
+  return `<div class="check-banner ${pass ? 'pass' : 'fail'} ${color}" data-roll role="button" tabindex="0" aria-label="技能检定，点击掷骰">`
+    + `<i class="cb-gem" aria-hidden="true"></i>`
     + `<span class="cb-name">${name}</span>`
     + (diff ? `<span class="cb-diff">${diff}</span>` : '')
     + `<span class="cb-res">${result}</span>`

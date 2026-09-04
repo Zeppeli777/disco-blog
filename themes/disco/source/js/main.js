@@ -78,6 +78,20 @@
     el.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); fire(); } });
   });
 
+  /* ---- 体质/士气 HUD：士气随阅读进度消耗 ---- */
+  var morale = document.getElementById('morale-fill');
+  if (morale) {
+    var updateMorale = function () {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var p = max > 0 ? (window.scrollY || doc.scrollTop || 0) / max : 0;
+      morale.style.width = Math.max(100 - p * 100, 4) + '%';
+    };
+    window.addEventListener('scroll', updateMorale, { passive: true });
+    window.addEventListener('resize', updateMorale);
+    updateMorale();
+  }
+
   /* ---- 本地预览时给 giscus 换成内置暗色主题（生产环境用自定义 CSS） ---- */
   if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
     var trySet = function () {
