@@ -69,6 +69,10 @@ tags: [随想]              # 标签；加上 thought 标签会同时出现在�
 
 `.github/workflows/deploy.yml`：push 到 `main` → `hexo generate` → 上传 `public/` → 通过 GitHub Actions 官方 action 发布到 Pages。仓库 **Settings → Pages → Source** 需保持为 *GitHub Actions*（脚本已配置）。
 
+## 素材版权说明
+
+`themes/disco/source/img/revachol-skyline.jpg`（瑞瓦肖天际线）取自 [Disco Elysium Wiki](https://discoelysium.wiki.gg/)，美术版权归 **ZA/UM** 所有。本仓库为个人非商业博客，仅作粉丝性质的装饰性使用；如你计划商用或公开传播，请替换为自己的图片（改 `main.css` 里 `.bg-art` 与 `.hero` 的 `url(...)` 即可）。其余视觉元素（太阳 logo、纹理、版式）均为原创 CSS/SVG。
+
 ## 目录速览
 
 ```

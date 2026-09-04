@@ -52,6 +52,12 @@ img { max-width: 100%; }
 .narrow { max-width: 780px; }
 
 /* ---------- 大气层：底色晕染 / 暗角 / 油画颗粒 ---------- */
+.bg-art {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: url("../img/revachol-skyline.jpg") center 38% / cover no-repeat;
+  opacity: 0.14;
+  filter: saturate(0.75) brightness(1.12);
+}
 .vignette {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background:
@@ -117,17 +123,20 @@ img { max-width: 100%; }
 }
 .flavor-strip p.show { opacity: 1; }
 
-/* ---------- 首页 Hero ---------- */
-.hero { position: relative; overflow: hidden; }
-.hero::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(56% 74% at 74% 26%, rgba(240, 156, 74, 0.1), transparent 62%);
+/* ---------- 首页 Hero（瑞瓦肖天际线全画幅背景） ---------- */
+.hero {
+  position: relative; overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(13, 16, 22, 0.9) 0%, rgba(13, 16, 22, 0.42) 34%, rgba(13, 16, 22, 0.3) 68%, rgba(14, 17, 22, 0.96) 96%, #0e1116 100%),
+    linear-gradient(90deg, rgba(13, 16, 22, 0.88) 0%, rgba(13, 16, 22, 0.5) 38%, rgba(13, 16, 22, 0.16) 72%, rgba(13, 16, 22, 0.34) 100%),
+    url("../img/revachol-skyline.jpg") center 42% / cover no-repeat;
 }
 .hero-in {
-  display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center;
-  gap: 2rem; padding-top: 6.5rem; padding-bottom: 5rem; position: relative;
+  display: grid; grid-template-columns: 1fr; align-items: center;
+  max-width: 1080px; margin: 0 auto;
+  padding: 7.5rem 24px 6rem; position: relative;
 }
-.hero-copy { position: relative; z-index: 1; }
+.hero-copy { position: relative; z-index: 1; max-width: 620px; }
 .hero-kicker {
   color: var(--orange-soft); letter-spacing: 0.38em; font-size: 0.78rem; margin: 0 0 1.3rem;
 }
@@ -139,32 +148,23 @@ img { max-width: 100%; }
   font-family: var(--display); font-weight: 900;
   font-size: clamp(2.4rem, 6.2vw, 4.2rem); letter-spacing: 0.16em;
   color: var(--white); margin: 0 0 0.4em; line-height: 1.25;
-  text-shadow: 0 2px 60px rgba(240, 156, 74, 0.28);
+  text-shadow: 0 2px 30px rgba(4, 6, 10, 0.8), 0 2px 80px rgba(240, 156, 74, 0.22);
 }
-.hero-sub { color: var(--muted); font-size: 1.06rem; letter-spacing: 0.1em; margin: 0; }
+.hero-sub { color: var(--ink); font-size: 1.06rem; letter-spacing: 0.1em; margin: 0; text-shadow: 0 1px 18px rgba(4, 6, 10, 0.9); }
 .hero-actions { margin-top: 2.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn {
-  display: inline-block; border: 1px solid var(--line);
-  padding: 0.72em 1.7em; color: var(--ink-dim);
+  display: inline-block; border: 1px solid rgba(197, 205, 224, 0.4);
+  padding: 0.72em 1.7em; color: var(--white);
   font-size: 0.85rem; letter-spacing: 0.24em;
-  background: rgba(20, 25, 36, 0.4);
+  background: rgba(10, 13, 19, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   transition: all 0.25s ease;
 }
-.btn:hover { color: var(--white); border-color: var(--orange); box-shadow: 0 0 24px rgba(240, 156, 74, 0.14); }
+.btn:hover { color: var(--white); border-color: var(--orange); box-shadow: 0 0 24px rgba(240, 156, 74, 0.2); }
 .btn-primary { border-color: var(--orange); color: var(--orange-soft); }
-.btn-primary:hover { background: rgba(240, 156, 74, 0.12); }
-.hero-hint { margin-top: 1.7rem; font-size: 0.8rem; font-style: italic; color: var(--faint); letter-spacing: 0.06em; }
-
-.hero-art { position: relative; display: grid; place-items: center; }
-.sun-svg {
-  width: min(520px, 100%);
-  filter: drop-shadow(0 0 70px rgba(240, 156, 74, 0.16));
-  animation: sunfloat 9s ease-in-out infinite;
-}
-@keyframes sunfloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
+.btn-primary:hover { background: rgba(240, 156, 74, 0.16); }
+.hero-hint { margin-top: 1.7rem; font-size: 0.8rem; font-style: italic; color: rgba(233, 227, 211, 0.75); letter-spacing: 0.06em; text-shadow: 0 1px 14px rgba(4, 6, 10, 0.9); }
 
 /* ---------- 分区标题 ---------- */
 .sec-title { display: flex; align-items: baseline; gap: 1.1rem; margin: 0 0 2.2rem; }
@@ -516,9 +516,12 @@ span.current { border-color: var(--orange); color: var(--orange-soft); }
 
 /* ---------- 响应式 ---------- */
 @media (max-width: 900px) {
-  .hero-in { grid-template-columns: 1fr; padding-top: 4.5rem; padding-bottom: 3.5rem; }
-  .hero-art { position: absolute; right: -14%; top: -4%; width: 70%; opacity: 0.4; z-index: 0; }
-  .hero-copy { z-index: 1; }
+  .hero-in { padding-top: 5rem; padding-bottom: 4.5rem; }
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(13, 16, 22, 0.9) 0%, rgba(13, 16, 22, 0.62) 40%, rgba(14, 17, 22, 0.96) 96%, #0e1116 100%),
+      url("../img/revachol-skyline.jpg") center 30% / cover no-repeat;
+  }
   .topbar-in { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
   .flavor-strip p { text-align: left; }
   .attr-grid { grid-template-columns: 1fr; }
@@ -529,7 +532,6 @@ span.current { border-color: var(--orange); color: var(--orange-soft); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .sun-svg { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .check-banner.rolling { animation: none; }
 }
